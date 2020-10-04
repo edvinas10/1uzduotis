@@ -5,4 +5,5 @@ Galutinio balo arba medianos suskaičiavimas taip pat vyksta panašiu greičiu.
 Skaičiuojant medianą buvo panaudotas bubble sort rūšiavimo algoritmas tam, kad sūrušiuotame sąraše būtų galima rasti medianą.
 Atsitiktiniai skaičiai buvo generuojami su random funkcija įsivedus randomSk kintamajį ir po to panaudojus jį išvestyje.
 Duomenų nuskaitymui naudojamas vektorius, nes pažymių masyvas yra gerokai per mažas.
-Failo nuskaitymui dar kažko trūksta, nes įvedus failo pavadinimą jokio atsakymo nėra.
+Išvestyje matoma struktūra atrodo taip: studento vardas, pavardė ir galutinis pažymys bei mediana.
+Testavimui naudojame kursiokai.txt failą, kuriame yra duomenys apie studentų pažymius bei egzamino įvertinimą.
