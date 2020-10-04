@@ -24,12 +24,13 @@ void rikiuoti(int masyvas[], int n)
 {  
     int i, j;  
     for (i = 0; i < n-1; i++)      
-      for (j = 0; j < n-i-1; j++)  
-        if (masyvas[j] > masyvas[j+1])  
-          std::swap(masyvas[j], masyvas[j+1]);  
+      for (j = i+1; j < n; j++)  
+        if (masyvas[i] > masyvas[j])  
+          std::swap(masyvas[j], masyvas[i]);  
 }
 double rastiMediana(int masyvas[], int n) 
 { 
+  rikiuoti (masyvas, n);
     if (n % 2 != 0) 
         return (double)masyvas[n / 2]; 
     return (double)(masyvas[(n - 1) / 2] + masyvas[n / 2]) / 2.0; 
@@ -79,8 +80,6 @@ int main()
   cin >> parinktis;
   if (parinktis == "Mediana"){
    Eil.GP = rastiMediana(Eil.paz, namDarbSk); //Isveda tik pazymiu mediana
-    //Turbut reiktu dar papildomai kazka padaryti su egzamino balais
-    Eil.GP = Eil.GP * 0.4 + 0.6 * Eil.egz;
     cout << Eil.GP << std::endl; 
   }
   else if (parinktis == "GP(galutinis)"){
