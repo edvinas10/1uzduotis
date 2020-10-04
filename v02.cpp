@@ -24,13 +24,17 @@ struct duomuo {
 void rikiuoti(std::vector<int> masyvas, int n)  
 {  
     int i, j;  
-    for (i = 0; i < n-1; i++)      
-      for (j = 0; j < n-i-1; j++)  
-        if (masyvas[j] > masyvas[j+1])  
-          std::swap(masyvas[j], masyvas[j+1]);  
+    for (i = 0; i < n-1; i++){
+      int k = i;      
+      for (j = i+1; j < n; j++)  
+        if (masyvas[i] > masyvas[j])
+          k = j;  
+      std::swap(masyvas[i], masyvas[k]); 
+    } 
 }
 double rastiMediana(std::vector<int> masyvas, int n) 
 { 
+  rikiuoti(masyvas,  n);
     if (n % 2 != 0) {
       return (double)masyvas[n / 2]; 
     }
@@ -47,20 +51,20 @@ int main()
   std::vector <duomuo> Eil_vect;
 
   std::ifstream fd;
-  std::ofstream fr("kursiokai.txt");
+  std::ofstream fr;
 
-  cout << "Pasirinkite: Atsitiktiniai/Ivedami/Nuskaitomi\n";
+  cout << "Pasirinkite: Atsitiktiniai_paz/Ivedami_paz/Nuskaitomi_paz\n";
   string parinktis;
   cin >> parinktis;
   int namDarbSk;
-  if (parinktis == "Atsitiktiniai"){
+  if (parinktis == "Atsitiktiniai_paz"){
     cout << "Iveskite Eil. duom. (Vardas, Pavarde, kiek paz.):\n";
     cin >> Eil.Vard >> Eil.Pav >> namDarbSk;
     for (int i = 0; i < namDarbSk; i++) { 
       Eil.GP = Eil.GP + randomSk();
     };
   }
-  else if (parinktis == "Ivedami"){
+  else if (parinktis == "Ivedami_paz"){
     cout << "Iveskite Eil. duom. (Vardas, Pavarde, kiek paz., egz. paz. ir sem. paz.):\n";
     cin >> Eil.Vard >> Eil.Pav >> namDarbSk >> Eil.egz;
     for (int i = 0; i < namDarbSk; i++) { 
@@ -68,7 +72,7 @@ int main()
       Eil.GP = Eil.GP + (float)Eil.paz[i];
     };
   }
-  else if (parinktis == "Nuskaitomi"){
+  else if (parinktis == "Nuskaitomi_paz"){
     cout << "Iveskite failo pavadinima (pavadinimas.txt):\n";
     string pavadinimas;
     cin >> pavadinimas;
@@ -105,16 +109,25 @@ int main()
       Eil_vect.push_back(laikinas);
       if(fd.eof()) break;
     }
+    cout<< "Vardas        "<<"Pavarde       "<<"Galutinis(GP)       "<<"Galutinis(Mediana)      " << std::endl;
+    cout <<"-----------------------------------------------------" << std::endl;
+
     /*Iövedimas vektoriaus*/
     for (duomuo eile : Eil_vect) {
-        cout << eile.Vard << std::endl;
-        cout << eile.Pav << std::endl;
-        cout << "Pazymiai:" << std::endl;
+
+        cout << eile.Vard <<"        "<<  eile.Pav <<"        ";
+
+        Eil.GP = 0;
         for (int pazymys : eile.paz) {
-            cout << pazymys << " ";
+            Eil.GP = Eil.GP + pazymys;
         }
-        cout << std::endl << eile.egz << std::endl;
+        Eil.GP = Eil.GP/15;
+        Eil.GP = Eil.GP * 0.4 + 0.6 * eile.egz;
+        cout << Eil.GP << std::endl;
+        Eil.GP = rastiMediana(eile.paz, 15);
+        cout << Eil.GP << std::endl; 
     }
+    return 0;
   }
   else {
     cout << "Klaida, turite ivesti tinkamus duomenis\n";
@@ -129,7 +142,7 @@ int main()
     cout << Eil.paz[i] << " ";
   };
 
-  cout << "Pasirinkite: Mediana/GP\n";
+  cout << "Pasirinkite: Mediana/GP(galutinis)\n";
   cin >> parinktis;
   if (parinktis == "Mediana"){
     Eil.GP = rastiMediana(Eil.paz, namDarbSk); 
@@ -139,7 +152,7 @@ int main()
     fr.close();
     return 0;
   }
-  else if (parinktis == "GP"){
+  else if (parinktis == "GP(galutinis)"){
     cout << " " << Eil.GP << std::endl;
    // fd.close();
     fr.close();
