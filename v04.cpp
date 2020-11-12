@@ -6,22 +6,22 @@
 #include <ctime>
 #include <fstream>
 #include <random>
+#include <iomanip> // del setprecision
 
 using namespace std;
 using std::cout;
 using std::cin;
 using std::string;
 using std::swap;
+
+
 struct duomuo {
   string Vard;
   string Pav;
-  int paz[10];
+  int paz[15];
   int egz;
   float GP=0;
 };
-
-//rikiuoti(Eil.paz);
-//rikiuoti(Eil.egz);
 
 void rikiuoti(int masyvas[], int n)  
 {  
@@ -46,38 +46,70 @@ int randomSk() {
     //srand((unsigned)time(0)); //susigeneruoju seed'as
 }
 
-
 int main()
 {
-  duomuo Eil; duomuo Eil_mas[5];
+  ofstream failas;
+  int pagalbinis = 1000;
+  for(int i = 1; i <= 4; i++){
+    ofstream failas(to_string(i)+"_failas.txt", ios::in);
+    failas.open (to_string(i)+"_failas.txt");
+    for(int j = 1; j <= pagalbinis; j++){
+          failas << "Vardas" + to_string(j) + " Pavarde" + to_string(j) << " " <<
+          randomSk() <<  " " << randomSk() <<  " " <<
+          randomSk() << " " << randomSk() << "\n";
+    }
+    failas.close();
+    pagalbinis *= 10;
+  }
+    ofstream failasK;
+    ofstream failasM;
+
+    failasK.open("kietiakai.txt");
+    failasM.open("minkstuciai.txt");
+    //duomenu nuskaitymas
+    string vardas, pavarde;
+    int paz1, paz2, paz3, egz;
+    for(int i = 1; i <= 4; i++){
+      ifstream failas(to_string(i)+"_failas.txt", ios::in);
+      while( failas >> vardas >> pavarde >> paz1 >> paz2 >> paz3 >> egz )
+      {
+        double GP = (((double)(paz1 + paz2 + paz3)/3) * 0.4 + (double)egz * 0.6);
+        if(GP >= 5){
+          failasK << vardas << " " << pavarde << " " << fixed << setprecision(2) << GP << "\n";
+        }
+        else{
+          failasM << vardas << " " << pavarde << " " << fixed << setprecision(2) << GP << "\n";
+        }
+        //pagal gp rusiuot <5 >5
+        //surusiavus idet i kitus du tik vard pav ir gp
+
+
+        cout << vardas << " " << pavarde << " " << fixed << setprecision(2) << GP << " " << i << endl;
+      }
+    failas.close();
+    failasK.close();
+    failasM.close();
+  }
+//------------------------------------------
+  duomuo Eil;
+  duomuo Eil_mas[5];
   std::vector <duomuo> Eil_vect;
 
-  ofstream outfile ("1_failas.txt");
-  outfile << "Vardas        " << Eil.Vard << "Pavarde       " << Eil.Pav << "namDarbPazymiai        " << Eil.paz << "egz_pazymys    " << Eil.egz << "Galutinis(GP)    " << Eil.GP;
-  for (int i = 0; i < 1000; i++)
-      Eil.egz = Eil.egz + randomSk();
-  
-  if (Eil.GP > 5){
-    ofstream outfile ("galvociai.txt");
-    outfile << "Vardas        " << Eil.Vard << "Pavarde       " << Eil.Pav << "namDarbPazymiai        " << Eil.paz << "egz_pazymys    " << Eil.egz << "Galutinis(GP)    " << Eil.GP;
-  }
-  else {
-    ofstream outfile ("vargsiukai.txt");
-    outfile << "Vardas        " << Eil.Vard << "Pavarde       " << Eil.Pav << "namDarbPazymiai        " << Eil.paz << "egz_pazymys    " << Eil.egz << "Galutinis(GP)    " << Eil.GP;
-  }
-  
   cout << "Pasirinkite: Atsitiktiniai_paz/Ivedami_paz\n";
   string parinktis;
   cin >> parinktis;
   int namDarbSk;
-  if (parinktis == "Atsitiktiniai_paz"){
+  if (parinktis == "1"){
     cout << "Iveskite Eil. duom. (Vardas, Pavarde, kiek paz.):\n";
     cin >> Eil.Vard >> Eil.Pav >> namDarbSk;
     for (int i = 0; i < namDarbSk; i++) { 
-      Eil.GP = Eil.GP + randomSk();
+      int atsitiktinis = randomSk();
+      Eil.GP = Eil.GP + atsitiktinis;
+      Eil.paz[i] = atsitiktinis;
     };
+
   }
-  else if (parinktis == "Ivedami_paz"){
+  else if (parinktis == "2"){
     cout << "Iveskite Eil. duom. (Vardas, Pavarde, kiek paz., egz. paz. ir sem. paz.):\n";
     cin >> Eil.Vard >> Eil.Pav >> namDarbSk >> Eil.egz;
     for (int i = 0; i < namDarbSk; i++) { 
@@ -97,7 +129,7 @@ int main()
     cout << " " << Eil.paz[i];
   };
 
-  cout << "Pasirinkite: Mediana/GP(galutinis)\n";
+  cout << "\nPasirinkite: Mediana/GP(galutinis)\n";
   cin >> parinktis;
   if (parinktis == "Mediana"){
    Eil.GP = rastiMediana(Eil.paz, namDarbSk); //Isveda tik pazymiu mediana
