@@ -18,17 +18,13 @@ veikimo spartą. Skaičiuojame kiek užtrunka duomenų nuskaitymas iš kiekvieno
 failų sukūrimo sparta (iš v0.4 releaso). Tam naudojame std::chrono biblioteką. pažymime kodo, atliekančio mums reikalingas funkcijas pradžią ir pabaigą (start ir
 end) bei vėliau atimame pabaigą iš pradžios (end-start). Testavimo sistemos parametrai būtų tokie: Procesorius (HDD) - 2.6GHz, Operatyvinė atmintis (RAM) - 8GB, 
 Kietasis diskas HDD (SSD) - 251GB. Spartos analizės testavimo rezultatai yra tokie:
-
-clang++-7 -pthread -std=c++17 -o main main.cpp v05.cp
- ./main
-Failu sukurimo veikimo laikas (sec): 243.587
-Duomenu nuskaitymo veikimo laikas (sec) 1 failas: 4.2449e-05
-Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 1 failas: 0.00240191
-Duomenu nuskaitymo veikimo laikas (sec) 2 failas: 0.00250364
-Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 2 failas: 0.0665636
-Duomenu nuskaitymo veikimo laikas (sec) 3 failas: 0.0691822
-Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 3 failas: 0.517277
-Duomenu nuskaitymo veikimo laikas (sec) 4 failas: 0.586527
-Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 4 failas: 5.29317
-Pasirinkite: Atsitiktiniai_paz/Ivedami_paz
+Failu sukurimo veikimo laikas (sec): 243.587;
+Duomenu nuskaitymo veikimo laikas (sec) 1 failas: 4.2449e-05;
+Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 1 failas: 0.00240191;
+Duomenu nuskaitymo veikimo laikas (sec) 2 failas: 0.00250364;
+Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 2 failas: 0.0665636;
+Duomenu nuskaitymo veikimo laikas (sec) 3 failas: 0.0691822;
+Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 3 failas: 0.517277;
+Duomenu nuskaitymo veikimo laikas (sec) 4 failas: 0.586527;
+Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 4 failas: 5.29317;
  
