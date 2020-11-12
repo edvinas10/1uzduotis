@@ -11,4 +11,10 @@ V0.3 versijoje atsiranda papildomi: antraštinis header failas struct1.h kuriame
 duomenų struktūros, duomenų tipai bei funkcijų prototipai. Kitas failas pavadinimu struct1.cpp yra antraštinio header failo cpp failas, kuriame yra
 realizuotas pats funkcijų vykdymas. Šioje versijoje yra taip pat panaudotas išimčių valdymas, kuris turėtų leisti mesti tam tikrą, norimą klaidos 
 pranešimą kai įvedami duomenys yra netinkami. Šiuo atveju kuomet skaičiuojame galutinį balą ir skaičiuojant namų darbų vidurkį, daliname iš namų darbų 
-skaičiaus, namų darbų skaičius yra 0. V0.4 yra V0.1 versijos patobulinimas. Sukuriami 4 nauji failai su studentu irasais ir atsitiktinai generuojamais pazymiais bei egzamino pazymiu. Tuomet skaiciuojamas ju galutinis balas bei pagal ji visi studentai surusiuojami i 2 kategorijas: "Kietiakai" ir "Minkstuciai".  Pirmieji turi GP>5, likusieji GP<5. Visi surusiuoti studentai perkeliami i dar 2 naujus failus "Kietiakai.txt" ir "Minkstuciai.txt". 
+skaičiaus, namų darbų skaičius yra 0. V0.4 yra V0.1 versijos patobulinimas. Sukuriami 4 nauji failai su studentų įrašais ir atsitiktinai generuojamais pažymiais bei
+egzamino pažymiu. Tuomet skaičiuojamas jų galutinis balas bei pagal jį visi studentai surūšiuojami į 2 kategorijas: "Kietiakai" ir "Minkštučiai".  Pirmieji turi
+GP>5, likusieji GP<5. Visi surūšiuoti studentai perkeliami į dar 2 naujus failus "Kietiakai.txt" ir "Minkstuciai.txt". V0.5 versijoje matuojame programos žingsnių
+veikimo spartą. Skaičiuojame kiek užtrunka duomenų nuskaitymas iš kiekvieno failo bei duomenų surūšiavimas bei perkėlimas į du naujus failus. Taip pat ir bendra
+failų sukūrimo sparta (iš v0.4 releaso). Tam naudojame std::chrono biblioteką. pažymime kodo, atliekančio mums reikalingas funkcijas pradžią ir pabaigą (start ir
+end) bei vėliau atimame pabaigą iš pradžios (end-start). Testavimo sistemos parametrai būtų tokie: Procesorius (HDD) - 2.6GHz, Operatyvinė atmintis (RAM) - 8GB, 
+Kietasis diskas HDD (SSD) - 251GB.
