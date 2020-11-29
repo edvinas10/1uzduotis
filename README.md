@@ -16,8 +16,7 @@ egzamino pažymiu. Tuomet skaičiuojamas jų galutinis balas bei pagal jį visi 
 GP>5, likusieji GP<5. Visi surūšiuoti studentai perkeliami į dar 2 naujus failus "Kietiakai.txt" ir "Minkstuciai.txt". Taip pat matuojame programos žingsnių
 veikimo spartą. Skaičiuojame kiek užtrunka duomenų nuskaitymas iš kiekvieno failo bei duomenų surūšiavimas bei perkėlimas į du naujus failus ir bendra
 failų sukūrimo sparta. Tam naudojame std::chrono biblioteką. pažymime kodo, atliekančio mums reikalingas funkcijas pradžią ir pabaigą (start ir
-end) bei vėliau atimame pabaigą iš pradžios (end-start). Testavimo sistemos parametrai būtų tokie: Procesorius (HDD) - 2.6GHz, Operatyvinė atmintis (RAM) - 8GB, 
-Kietasis diskas HDD (SSD) - 251GB. Spartos analizės testavimo rezultatai yra tokie:
+end) bei vėliau atimame pabaigą iš pradžios (end-start). Spartos analizės testavimo rezultatai yra tokie:
 
 Failu sukurimo veikimo laikas (sec): 243.587;
 Duomenu nuskaitymo veikimo laikas (sec) 1 failas: 4.2449e-05;
@@ -29,3 +28,7 @@ Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 3 failas: 0.
 Duomenu nuskaitymo veikimo laikas (sec) 4 failas: 0.586527;
 Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 4 failas: 5.29317;
  
+V0.5 versijoje lyginame programos spartą (failų kūrimas, duomenų nuskaitymas, jų sūrušiavimas bei išvedimas į 2 naujus failus) naudojant vektorių ir listą.
+Vektoriaus rezultatai jau yra pateikti čia, todel čia keliame listo rezultatus ir palygine matome, kad listas dirba nežymiai greičiau uz vektorių. Testavimo
+sistemos parametrai būtų tokie: Procesorius (HDD) - 2.6GHz, Operatyvinė atmintis (RAM) - 8GB, Kietasis diskas HDD (SSD) - 251GB. Testavimo rezultatai su listu
+pateikti nuotraukos faile pavadinimu IMG-0424.JPG .
