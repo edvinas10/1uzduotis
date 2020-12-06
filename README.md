@@ -32,3 +32,7 @@ V0.5 versijoje lyginame programos spartą (failų kūrimas, duomenų nuskaitymas
 Vektoriaus rezultatai jau yra pateikti čia, todel čia keliame listo rezultatus ir palygine matome, kad listas dirba nežymiai greičiau uz vektorių. Testavimo
 sistemos parametrai būtų tokie: Procesorius (HDD) - 2.6GHz, Operatyvinė atmintis (RAM) - 8GB, Kietasis diskas HDD (SSD) - 251GB. Testavimo rezultatai su listu
 pateikti nuotraukos faile pavadinimu IMG-0424.JPG .
+Galutiniame v1.0 release išbandome skirtingas studentų dalijimo į kietus ir minkštus strategijas. Kadangi prieš tai rūšiuojant studentus pagal galutinį balą 
+naudojome išvedimą į 2 naujus ir dabar bandėme rūšiuoti išvedant į vieną kietųjų failą tuo pačiu ištrinant kietuosius iš senų failų ir taip senuose failuose
+paliekant tik minkštus, palygines matau, kad strategija skaidyti į 2 naujus failus yra geresnė. Programų sparta yra panaši, atminties atžvilgiu, be abejo, ši
+strategija nėra efektyvesnė, tačiau labai dažnai trinant kiekvieną kartą gana didelė tikimybė prarasti dalį įrašų.
