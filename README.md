@@ -29,7 +29,7 @@ Duomenu nuskaitymo veikimo laikas (sec) 4 failas: 0.586527;
 Duomenu rusiavimo ir perkelimo i naujus failus veikimo laikas (sec) 4 failas: 5.29317;
  
 V0.5 versijoje lyginame programos spartą (failų kūrimas, duomenų nuskaitymas, jų sūrušiavimas bei išvedimas į 2 naujus failus) naudojant vektorių ir listą.
-Vektoriaus rezultatai jau yra pateikti čia, todel čia keliame listo rezultatus ir palygine matome, kad listas dirba nežymiai greičiau uz vektorių. Testavimo
+Vektoriaus rezultatai jau yra pateikti čia, todel čia keliame listo rezultatus ir palygine matome, kad vektorius dirba nežymiai greičiau uz listą. Testavimo
 sistemos parametrai būtų tokie: Procesorius (HDD) - 2.6GHz, Operatyvinė atmintis (RAM) - 8GB, Kietasis diskas HDD (SSD) - 251GB. Testavimo rezultatai su listu
 pateikti nuotraukos faile pavadinimu IMG-0424.JPG .
 Galutiniame v1.0 release išbandome skirtingas studentų dalijimo į kietus ir minkštus strategijas. Kadangi prieš tai rūšiuojant studentus pagal galutinį balą
