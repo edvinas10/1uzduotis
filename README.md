@@ -35,4 +35,4 @@ pateikti nuotraukos faile pavadinimu IMG-0424.JPG .
 Galutiniame v1.0 release išbandome skirtingas studentų dalijimo į kietus ir minkštus strategijas. Kadangi prieš tai rūšiuojant studentus pagal galutinį balą 
 naudojome išvedimą į 2 naujus ir dabar bandėme rūšiuoti išvedant į vieną kietųjų failą tuo pačiu ištrinant kietuosius iš senų failų ir taip senuose failuose
 paliekant tik minkštus, palygines matau, kad strategija skaidyti į 2 naujus failus yra geresnė. Programų sparta yra panaši, atminties atžvilgiu, be abejo, ši
-strategija nėra efektyvesnė, tačiau labai dažnai trinant kiekvieną kartą gana didelė tikimybė prarasti dalį įrašų.
+strategija nėra efektyvesnė, tačiau labai dažnai trinant kiekvieną kartą gana didelė tikimybė prarasti dalį įrašų. Taip pat šioje galutinėje versijoje yra paruoštas CMakeLists.txt failas t.y. įidiegimo instrukcija vartotojui.
